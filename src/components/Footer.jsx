@@ -1,7 +1,16 @@
-// components/Footer.js
 import React from "react";
 
-const Footer = () => {
+const Footer = ({ setActiveSection }) => {
+  const handleHomeClick = (e) => {
+    e.preventDefault();
+    window.location.reload();
+  };
+
+  const scrollToSection = (e, section) => {
+    e.preventDefault();
+    setActiveSection(section);
+  };
+
   return (
     <footer className="bg-gray-800 border-t-4 border-gray-700 p-4 mt-8">
       <div className="max-w-6xl mx-auto px-4 md:px-8">
@@ -11,12 +20,20 @@ const Footer = () => {
             <h3 className="text-green-400 font-bold mb-2">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-gray-300 hover:text-white">
+                <a
+                  href="#"
+                  className="text-gray-300 hover:text-white"
+                  onClick={handleHomeClick}
+                >
                   Home
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-white">
+                <a
+                  href="#"
+                  className="text-gray-300 hover:text-white"
+                  onClick={(e) => scrollToSection(e, "projects")}
+                >
                   Projects
                 </a>
               </li>
@@ -43,12 +60,16 @@ const Footer = () => {
             <div className="flex flex-wrap gap-4">
               <a
                 href="https://github.com/Karan-mundhada"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-300 hover:text-white break-words"
               >
                 GitHub
               </a>
               <a
                 href="https://www.linkedin.com/in/karan-mundhada-075b071b7/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-300 hover:text-white break-words"
               >
                 LinkedIn
