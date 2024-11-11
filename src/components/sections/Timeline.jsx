@@ -200,7 +200,7 @@ export const Timeline = () => {
     const observerOptions = {
       root: null,
       rootMargin: "0px",
-      threshold: 0.1,
+      threshold: [0, 0.1],
     };
 
     // Observer for the timeline line
@@ -208,6 +208,8 @@ export const Timeline = () => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("animate-timeline");
+        } else {
+          entry.target.classList.remove("animate-timeline"); // Reset animation on exit
         }
       });
     }, observerOptions);
@@ -217,6 +219,8 @@ export const Timeline = () => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("animate-item");
+        } else {
+          entry.target.classList.remove("animate-item"); // Reset animation on exit
         }
       });
     }, observerOptions);

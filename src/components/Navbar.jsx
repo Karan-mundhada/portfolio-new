@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
+import k1 from "../../public/k1.png";
 
 const Navbar = ({ activeSection, setActiveSection }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -59,7 +60,7 @@ const Navbar = ({ activeSection, setActiveSection }) => {
       {/* Title Bar */}
       <div className="bg-blue-900 p-2 flex items-center justify-between border-b border-blue-700">
         <div className="flex items-center gap-2">
-          <Menu className="w-4 h-4" />
+          <img src={k1} className="w-8 h-8" alt="Logo" />
           <span>Portfolio.exe</span>
         </div>
         <div className="flex gap-2">
