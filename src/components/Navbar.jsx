@@ -13,7 +13,7 @@ const Navbar = ({ activeSection, setActiveSection }) => {
   const menuItems = [
     { id: "about", label: "About" },
     { id: "skills", label: "Skills" },
-    { id: "timeline", label: "Timeline" },
+    { id: "Experience", label: "Experience" },
     { id: "projects", label: "Projects" },
     { id: "contact", label: "Contact" },
   ];
@@ -87,18 +87,23 @@ const Navbar = ({ activeSection, setActiveSection }) => {
 
       {/* Navigation Bar */}
       <div className="bg-gray-200 text-black p-4 border-b-4 border-gray-400">
-        <div className="flex items-center justify-between max-w-7xl mx-auto">
+        <div className="flex flex-col lg:flex-row items-center justify-between max-w-7xl mx-auto">
           {/* Mobile Menu Button */}
-          <button
-            className="lg:hidden"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? (
-              <X className="w-6 h-6 text-gray-800" />
-            ) : (
-              <Menu className="w-6 h-6 text-gray-800" />
-            )}
-          </button>
+          <div className="w-full flex items-center justify-between lg:hidden">
+            <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
+              {isMenuOpen ? (
+                <X className="w-5 h-5 text-gray-800" />
+              ) : (
+                <Menu className="w-5 h-5 text-gray-800" />
+              )}
+            </button>
+            <button
+              onClick={() => handleSectionClick("about")}
+              className="text-lg font-bold px-3 py-1 bg-gray-800 text-white border-2 border-gray-600 shadow-[2px_2px_0px_0px_rgba(0,0,0,0.9)] active:shadow-[1px_1px_0px_0px_rgba(0,0,0,0.9)] active:translate-x-[1px] active:translate-y-[1px] transition-all"
+            >
+              KARAN
+            </button>
+          </div>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center justify-between w-full">
@@ -139,7 +144,7 @@ const Navbar = ({ activeSection, setActiveSection }) => {
                 </button>
               ))}
               <a
-                href="https://drive.google.com/file/d/10NMeYhkFNE8FYOc137vcLmGlIiUjqHtQ/view?usp=drive_link"
+                href="https://drive.google.com/file/d/1aLIf_uk4nmSMZpA_BDsrCmwid1loQCe_/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${buttonStyle} bg-gray-100 hover:bg-gray-300`}
@@ -152,11 +157,11 @@ const Navbar = ({ activeSection, setActiveSection }) => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden mt-4 space-y-2">
+          <div className="lg:hidden mt-4 space-y-2 w-full">
             {menuItems.map((item) => (
               <button
                 key={item.id}
-                className={`${buttonStyle} w-full text-left ${
+                className={`${buttonStyle} w-full text-left block ${
                   activeSection === item.id
                     ? "bg-blue-200"
                     : "bg-gray-100 hover:bg-gray-300"
@@ -167,7 +172,7 @@ const Navbar = ({ activeSection, setActiveSection }) => {
               </button>
             ))}
             <a
-              href="/resume.pdf"
+              href="https://drive.google.com/file/d/1aLIf_uk4nmSMZpA_BDsrCmwid1loQCe_/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className={`${buttonStyle} w-full text-left bg-gray-100 hover:bg-gray-300 block`}

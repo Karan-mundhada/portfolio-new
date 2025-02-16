@@ -4,7 +4,7 @@ import Footer from "./components/Footer";
 import { About } from "./components/sections/About";
 import { Skills } from "./components/sections/Skills";
 import { Contact } from "./components/sections/Contact";
-import { Timeline } from "./components/sections/Timeline";
+import { Experience } from "./components/sections/Experience";
 import { Projects } from "./components/sections/Projects";
 
 const App = () => {
@@ -25,7 +25,7 @@ const App = () => {
   }, [activeSection]);
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
+    <div className="min-h-screen bg-gray-900 text-white overflow-x-hidden">
       <Navbar
         activeSection={activeSection}
         setActiveSection={setActiveSection}
@@ -38,8 +38,8 @@ const App = () => {
         <div id="contact-section">
           {activeSection === "contact" && <Contact />}
         </div>
-        <div id="timeline-section">
-          <Timeline />
+        <div id="Experience-section">
+          <Experience />
         </div>
         <div id="projects-section">
           <Projects />

@@ -19,27 +19,27 @@ export const About = () => {
       content: (
         <>
           <p className="text-gray-300 leading-relaxed mb-4">
-            Hi, I’m Karan Mundhada, a ML Engineer and Frontend Dev with a strong
+            Hi, I'm Karan Mundhada, a ML Engineer and Frontend Dev with a strong
             drive for exploring technology and a fascination with how everything
             works. I love tackling complex problems and designing solutions that
             can make a meaningful impact. This curiosity fuels my journey in
-            computer science, where I’m constantly aiming to build and innovate.
+            computer science, where I'm constantly aiming to build and innovate.
           </p>
           <p className="text-gray-300 leading-relaxed mb-4">
-            I’m currently pursuing a Computer Science Engineering degree with
+            I'm currently pursuing a Computer Science Engineering degree with
             Honors in Data Science at Pune Institute of Computer Technology. My
             journey here has been transformative, offering me opportunities to
             deepen my knowledge in fields like web development, machine
             learning, and data analysis. From creating scalable frontend
-            applications to diving into data-driven solutions, I’m motivated by
+            applications to diving into data-driven solutions, I'm motivated by
             a passion for building robust, efficient software.
           </p>
           <p className="text-gray-300 leading-relaxed">
-            Beyond coding, I’m actively engaged in community roles, having held
+            Beyond coding, I'm actively engaged in community roles, having held
             leadership positions in clubs like the IEEE Student Branch and
             DEBSOC at PICT. These experiences taught me the value of teamwork,
             communication, and effective collaboration—skills I carry into every
-            project. When I’m not developing, I enjoy exploring tech trends,
+            project. When I'm not developing, I enjoy exploring tech trends,
             contributing to open-source, and sharing knowledge with the
             community.
           </p>
@@ -142,13 +142,13 @@ export const About = () => {
     <div className="bg-gray-700 p-6 rounded border-2 border-gray-600 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.9)]">
       <h2 className="text-2xl mb-6 text-green-400 font-bold">About Me</h2>
 
-      {/* Tab Navigation */}
+      {/* Tab Navigation - Only mobile button sizes updated */}
       <div className="flex gap-4 mb-6">
         {Object.entries(tabs).map(([key, { icon, title }]) => (
           <button
             key={key}
             onClick={() => setActiveTab(key)}
-            className={`px-4 py-2 border-2 flex items-center gap-2 ${
+            className={`px-2 sm:px-4 py-1 sm:py-2 text-sm sm:text-base border-2 flex items-center gap-2 ${
               activeTab === key
                 ? "bg-blue-600 border-blue-700 text-white"
                 : "bg-gray-800 border-gray-600 text-gray-300 hover:bg-gray-600"

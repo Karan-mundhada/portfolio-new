@@ -130,14 +130,27 @@
 // };
 import React, { useEffect, useRef } from "react";
 
-export const Timeline = () => {
+export const Experience = () => {
   const timelineRef = useRef(null);
   const itemsRef = useRef([]);
 
   const experiences = [
     {
-      year: "2024",
-      title: "Joint Secretary",
+      startDate: "Jan 2025",
+      endDate: "Present",
+      title: "Freelance Frontend Developer",
+      organization: "Tenancy Passport",
+      location: "Remote",
+      description: [
+        "Developed the Overview Page for the platform, implementing a visually engaging and data-driven dashboard using React.js, MUI, and Chart.js",
+        "Worked on bug fixes, performance optimizations, and feature enhancements, ensuring a smooth and responsive user experience",
+      ],
+      skills: ["React.js", "MUI", "Chart.js", "Frontend Development"],
+    },
+    {
+      startDate: "Oct 2023",
+      endDate: "Present",
+      title: "Secretary",
       organization: "IEEE Student Branch, PISB",
       location: "Pune, India",
       description: [
@@ -152,7 +165,8 @@ export const Timeline = () => {
       ],
     },
     {
-      year: "2023",
+      startDate: "July 2023",
+      endDate: "July 2024",
       title: "President",
       organization: "Debate Society of PICT (DEBSOC)",
       location: "Pune, India",
@@ -167,7 +181,8 @@ export const Timeline = () => {
 
   const education = [
     {
-      year: "2025",
+      startDate: "Dec 2021",
+      endDate: "May 2025",
       degree: "B.E. in Computer Engineering",
       institution: "Pune Institute of Computer Technology",
       location: "Pune, Maharashtra",
@@ -178,14 +193,16 @@ export const Timeline = () => {
       ],
     },
     {
-      year: "2021",
+      startDate: "Jun 2019",
+      endDate: "May 2021",
       degree: "Higher Secondary Certificate (HSC)",
       institution: "Golden Kids Junior College",
       location: "Amravati, Maharashtra",
       achievements: ["Scored 96.83%", "Achieved Rank 813 in MHT-CET"],
     },
     {
-      year: "2019",
+      startDate: "Jun 2009",
+      endDate: "May 2019",
       degree: "Secondary School Certificate (SSC)",
       institution: "Golden Kids High English School",
       location: "Amravati, Maharashtra",
@@ -257,7 +274,14 @@ export const Timeline = () => {
       {/* Timeline Items */}
       <div className="space-y-12">
         {[...experiences, ...education]
-          .sort((a, b) => b.year - a.year)
+          .sort((a, b) => {
+            // Sort by start date for experiences
+            if (a.startDate && b.startDate) {
+              return new Date(b.startDate) - new Date(a.startDate);
+            }
+            // Fall back to year sorting for education
+            return b.year - a.year;
+          })
           .map((item, index) => (
             <div
               key={index}
@@ -271,14 +295,18 @@ export const Timeline = () => {
 
               {/* Content Card */}
               <div className="w-5/12 p-6 bg-gray-700 rounded border-2 border-gray-600 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.9)] hover:border-blue-500 transition-all">
-                <div className="text-green-400 text-lg font-bold">
-                  {item.year}
-                </div>
                 <div className="text-xl font-bold mt-2">
                   {item.title || item.degree}
                 </div>
-                <div className="text-gray-400 mt-1">
-                  {item.organization || item.institution}
+                <div className="flex justify-between items-center mt-1">
+                  <div className="text-gray-400">
+                    {item.organization || item.institution}
+                  </div>
+                  <div className="text-green-400 text-sm">
+                    {item.startDate
+                      ? `${item.startDate} - ${item.endDate}`
+                      : item.year}
+                  </div>
                 </div>
                 <div className="text-gray-400 text-sm">{item.location}</div>
 
@@ -340,4 +368,4 @@ export const Timeline = () => {
   );
 };
 
-export default Timeline;
+export default Experience;

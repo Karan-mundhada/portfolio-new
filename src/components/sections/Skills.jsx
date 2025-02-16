@@ -50,7 +50,7 @@ export const Skills = () => {
         },
         {
           name: "ML Libraries",
-          level: 75,
+          level: 85,
           description: "Django, Flask, and data processing applications",
           icon: "🚀",
         },
@@ -62,7 +62,7 @@ export const Skills = () => {
         },
         {
           name: "MongoDB",
-          level: 78,
+          level: 88,
           description:
             "Document databases, aggregation pipelines, and Mongoose ODM",
           icon: "🍃",
